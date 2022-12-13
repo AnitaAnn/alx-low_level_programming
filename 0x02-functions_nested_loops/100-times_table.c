@@ -1,30 +1,45 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - computes and prints the sum of all the multiples
- * of 3 or 5 below 1024
- * Return: Always 0 (Success)
+ * print_times_table - Prints a multiplication table up to param
+ * @n: The number to be treated
+ *
+ * Return: Number matrix
  */
-int main(void)
+void print_times_table(int n)
 {
-	unsigned long int sum3, sum5, sum;
-	int i;
+	int a, b, op;
 
-	sum3 = 0;
-	sum5 = 0;
-	sum = 0;
-
-	for (i = 0; i < 1024; ++i)
+	if (n >= 0 && n <= 15)
 	{
-		if ((i % 3) == 0)
+		for (a = 0; a <= n; a++)
 		{
-			sum3 = sum3 + i;
-		} else if ((i % 5) == 0)
-		{
-			sum5 = sum5 + i;
+			_putchar(48);
+			for (b = 1; b <= n; b++)
+			{
+				op = a * b;
+				_putchar(44);
+				_putchar(32);
+				if (op <= 9)
+				{
+					_putchar(32);
+					_putchar(32);
+					_putchar(op + 48);
+				}
+				else if (op <= 99)
+				{
+					_putchar(32);
+					_putchar((op / 10) + 48);
+					_putchar((op % 10) + 48);
+				}
+				else
+				{
+					_putchar(((op / 100) % 10) + 48);
+					_putchar(((op / 10) % 10) + 48);
+					_putchar((op % 10) + 48);
+				}
+			}
+			_putchar('\n');
 		}
 	}
-	sum = sum3 + sum5;
-	printf("%lu\n", sum);
-	return (0);
 }
