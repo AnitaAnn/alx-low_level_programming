@@ -1,32 +1,23 @@
 #include "main.h"
-
 /**
- * my_sqrt_recursion - This is my my_sqrt_recursion
- *                     function about the square root
- * @a: The entry is equal to n, of the before function
- * @b: This is the sum
+ * is_prime_number - Write a function that returns 1 if the input integer is a
+ * prime number, otherwise return 0.
  *
- * Return: This is the result
+ * @prime: Is my number prime
+ *
+ * Return: 1 if the input integer is a prime number, otherwise return 0
  */
-int my_sqrt_recursion(int a, int b)
+
+int is_prime_number(int prime)
 {
-	if (a == (b * b))
-		return (b);
-	else if ((b * b) >= a)
-		return (-1);
+	if (prime <= 1)
+		return (0);
+	if (prime == 2)
+		return (1);
+	if ((prime % 2 == 0) || (prime % 3 == 0) || (prime % 5 == 0))
+		return (0);
+	else if (prime % 9 == 0 || prime % 7 == 0)
+		return (0);
 	else
-		return (my_sqrt_recursion(a, b + 1));
-}
-
-/**
- * _sqrt_recursion - This is my first function
- * @n: This is my value
- *
- * Return: This is my result of the function my_sqrt_recursion
- */
-int _sqrt_recursion(int n)
-{
-	if (n <= 0)
-		return (-1);
-	return (my_sqrt_recursion(n, 0));
+		return (1);
 }
